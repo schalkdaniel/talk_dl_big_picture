@@ -1,6 +1,6 @@
 ---
-title: Deep Learning
-subtitle: The big picture 
+title: What is Deep Learning
+subtitle: The Big Picture -- From History to Todays Implementations
 author: Daniel Schalk
 date: \today
 output:
@@ -15,6 +15,7 @@ output:
 ## Deep Learning Timeline - 1
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history1.pdf}}
+\addtocounter{framenumber}{-1}
 
 ## Deep Learning Timeline - 1
 
@@ -44,7 +45,7 @@ output:
 
 ## Imitating Humans
 
-Turing Tests, Image Recognition, Speech Recognition, Text Mining, Artful Neural Networks, ...
+Turing Tests, Image Recognition, Speech Recognition, Text Mining, Neural Style Transfer, ...
 
 # Why Deep Learning is so Powerful?
 
@@ -59,6 +60,8 @@ Turing Tests, Image Recognition, Speech Recognition, Text Mining, Artful Neural 
 ## Pooling
 
 ## Lets Get Deep
+
+## Automated Feature Generation
 
 ## Getting More Complex
 
@@ -90,13 +93,17 @@ Tensorflow, Theano, CNTK, ...
 
 cudnn, CUDA, ...
 
-# Where to Start in the Deep Learning Jungle
+# Where to Start in the DL Jungle
 
 ## Getting Started with Keras - Installation
 
 ## Getting Started with Keras - Overview
 
-Oriented on the Notebooks (link)
+-   Instead of introducing theory fist, we want to get into the topic by applying it.
+
+-   We use examples from the book \href{https://www.manning.com/books/deep-learning-with-python}{\alert{Deep Learning with Python}} which are prepared as \href{https://github.com/fchollet/deep-learning-with-python-notebooks}{\alert{notebooks}}.
+
+-   **But**: When using something new, e.g. a convolution layer or optimizer, try to understand what it does and why it might be beneficial!
 
 ## Getting Started with Keras - First Neural Net
 
