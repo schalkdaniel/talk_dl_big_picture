@@ -1,0 +1,224 @@
+\usepackage[english]{babel}
+\usepackage{dsfont}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{csquotes}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{enumerate}
+% \usepackage[absolute,overlay]{textpos}
+\usepackage{psfrag}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{eqnarray}
+\usepackage{arydshln}
+\usepackage{tabularx}
+\usepackage{placeins}
+\usepackage{tikz}
+\usepackage{setspace}
+\usetikzlibrary{shapes,arrows,automata,positioning,calc}
+\usepackage{subfig}
+% \usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{framed}
+\usepackage{excludeonly}
+\usepackage{fancyvrb}
+\usecolortheme{dove}
+% \usefonttheme{serif}
+\usepackage{xfrac}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usepackage{transparent}
+
+% URL color:
+\definecolor{myorange}{RGB}{225, 127, 0}
+% Theme color of metropolis
+\definecolor{metropolis_theme_color}{RGB}{35,55,59}
+% Upper and lower rules of code chunks
+\definecolor{darkblue}{RGB}{34,55,58}
+% Font color of footer:
+\definecolor{mygrey}{RGB}{240,240,240}
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% METROPOLIS THEME + CUSTOMIZATIONS
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usetheme{metropolis}
+
+%% Adjust frame number to be displayd as i/n:
+%% ---------------------------------------------------------------
+\setbeamertemplate{frame numbering}{%
+  \insertframenumber{}/\inserttotalframenumber
+}
+\makeatother
+
+
+%% Add footer:
+%% ---------------------------------------------------------------
+\usepackage{framed, color}
+
+\setbeamertemplate{footline}[text line]{%
+    \noindent\hspace*{\dimexpr-\oddsidemargin-1in\relax}%
+     \colorbox{metropolis_theme_color}{
+     \makebox[\dimexpr\paperwidth-2\fboxsep\relax]{
+     \color{mygrey}
+     \begin{minipage}{0.33\linewidth}
+       \secname
+     \end{minipage}\hfill
+     \begin{minipage}{0.33\linewidth}
+       \centering
+       \insertshortauthor
+     \end{minipage}\hfill
+     \begin{minipage}{0.33\linewidth}
+       \flushright
+       \insertframenumber{}/\inserttotalframenumber
+     \end{minipage}     
+     }}%
+  \hspace*{-\paperwidth}
+}
+
+%% Add titlegraphic:
+%% ---------------------------------------------------------------
+\titlegraphic{
+  \vspace{3.5cm}
+  \hspace{5.33cm}
+  \transparent{0.2}
+  \includegraphics[width=8cm]{./style/images/logos/LMU}
+}
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NICER CODE BACKGROUND
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define Shaded if not defined already through knitr:
+%\definecolor{shadecolor}{RGB}{228,228,228}
+\makeatletter
+\@ifundefined{Shaded}{%
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}%
+}{}
+\makeatother
+
+\renewenvironment{Shaded}{
+  \vspace{5pt}
+  \begin{mdframed}[backgroundcolor=black!8,
+                   linecolor=darkblue,
+                   rightline=false,
+				   leftline=false]}{
+  \end{mdframed}}
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHANGE URL COLOR
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\UrlFont{\color{myorange}}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=myorange
+% }
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INCLUDE LATEX MATH + OTHER CUSTOMIZATIONS
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Include latex-math
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+
+\input{./../latex-math/basic-math.tex}
+\input{./../latex-math/basic-ml.tex}
+\input{./../latex-math/ml-bagging.tex}
+\input{./../latex-math/ml-boosting.tex}
+\input{./../latex-math/ml-gp.tex}
+\input{./../latex-math/ml-mbo.tex}
+\input{./../latex-math/ml-nn.tex}
+\input{./../latex-math/ml-svm.tex}
+\input{./../latex-math/ml-trees.tex}
+
+% Additional commands:
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\renewcommand{\pikN}{\hat{\pi}^\Np} % This collides with z
+
+
+
+% basic latex stuff
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}} %fontstyle for R packages
+\newcommand{\lz}{\vspace{0.5cm}} %vertical space
+
+\newcommand{\oneliner}[1] % Oneliner for important statements
+{\begin{block}{}\begin{center}\begin{Large}#1\end{Large}\end{center}\end{block}}
+
+\let\code=\texttt
+\let\proglang=\textsf
+
+\setkeys{Gin}{width=0.9\textwidth}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% EXERCISE COUNTER
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Command for an automatic exercise counter for the exercise sheets:
+\newcounter{Exercise}
+\newcommand{\exercise}{
+  \stepcounter{Exercise}
+  \ifnum \theExercise = 1
+    \Large{\textbf{Exercise \theExercise}} \\
+  \else
+    \vspace{\baselineskip} \Large{\textbf{Exercise \theExercise}} \\
+  \fi
+}
+
+% Command for an automatic exercise counter for the courses:
+\newcounter{CourseExercise}
+\newcommand{\oneExercise}{
+  \stepcounter{CourseExercise}
+    \begin{center}
+      \huge{Exercise \Roman{CourseExercise}}
+    \end{center}
+}
+\newcommand{\twoExercises}{
+  \stepcounter{CourseExercise}
+    \begin{center}
+      \huge{Exercise \Roman{CourseExercise} \& \stepcounter{CourseExercise} \Roman{CourseExercise}}
+    \end{center}
+}
+\newcommand{\threeExercises}{
+  \stepcounter{CourseExercise}
+    \begin{center}
+      \huge{Exercise \Roman{CourseExercise}, \stepcounter{CourseExercise} \Roman{CourseExercise} \& \stepcounter{CourseExercise} \Roman{CourseExercise}}
+    \end{center}
+}
+
+\newcommand{\resetExercises}{\setcounter{CourseExercise}{0}}
+
+\usetikzlibrary{shapes,arrows,automata,positioning,calc,chains,trees, shadows}
+\tikzset{
+  %Define standard arrow tip
+  >=stealth',
+  %Define style for boxes
+  punkt/.style={
+    rectangle,
+    rounded corners,
+    draw=black, very thick,
+    text width=6.5em,
+    minimum height=2em,
+    text centered},
+  % Define arrow style
+  pil/.style={
+    ->,
+    thick,
+    shorten <=2pt,
+    shorten >=2pt,}
+}
+\usepackage{subfig}

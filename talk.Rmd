@@ -1,0 +1,135 @@
+---
+title: Deep Learning
+subtitle: The big picture 
+author: Daniel Schalk
+date: \today
+output:
+  beamer_presentation:
+    includes:
+      in_header: "style/preamble_reisensburg.sty"
+    template: "style/custom_pandoc.tex"
+---
+
+# History of Deep Learning
+
+## Deep Learning Timeline - 1
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history1.pdf}}
+
+## Deep Learning Timeline - 1
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history1.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 1
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history1.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 1
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=4]{images/dl_history1.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 1
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history1.pdf}}
+
+
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 2
+
+# Fascination Deep Learning
+
+## Imitating Humans
+
+Turing Tests, Image Recognition, Speech Recognition, Text Mining, Artful Neural Networks, ...
+
+# Why Deep Learning is so Powerful?
+
+## Singlelayer Perceptron
+
+## Multilayer Perceptron
+
+## Optimizer
+
+## Convolution
+
+## Pooling
+
+## Lets Get Deep
+
+## Getting More Complex
+
+RNN, LSTM, GAN
+
+# Challenges in Deep Learning
+
+## Structure Search
+
+$\rightarrow$ Transfer learning.
+
+## Expensive Training
+
+$\rightarrow$ Use server or GPUs.
+
+## 
+
+# About Implementations
+
+## Frameworks
+
+Keras, PyTorch, mxnet, ...
+
+## Backends
+
+Tensorflow, Theano, CNTK, ...
+
+## Low-Level Implementations
+
+cudnn, CUDA, ...
+
+# Where to Start in the Deep Learning Jungle
+
+## Getting Started with Keras - Installation
+
+## Getting Started with Keras - Overview
+
+Oriented on the Notebooks (link)
+
+## Getting Started with Keras - First Neural Net
+
+Explain API
+
+## Getting Started with Keras - First Neural Net
+
+Some Code
+
+## Getting Started with Keras - Getting Deep
+
+Explain API
+
+## Getting Started with Keras - Getting Deep
+
+Some Code
+
+## Getting Started with Keras - Transfer Learning
+
+Explain API
+
+## Getting Started with Keras - Transfer Learning
+
+Some Code
+
+# Outlook
+
+## NLP
+
+Very very short intro how text mining connects to deep learning (gensim, word vectors, ...)
+
+## Reinforcement Learning
+
+This is what comes closest to AI as we are thinking of it. Just show examples
+
+## 
