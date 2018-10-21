@@ -43,29 +43,154 @@ output:
 
 # Fascination Deep Learning
 
-## Imitating Humans
+## Imitating Humans - 1
 
-Turing Tests, Image Recognition, Speech Recognition, Text Mining, Neural Style Transfer, ...
+\begin{itemize}
+  \item Turing test:
+
+  \begin{minipage}{\textwidth}
+    \begin{minipage}{0.6\textwidth}
+    \begin{itemize}
+      \item Developed by Alan Turing in 1950
+      \item Test of a machine's ability to exhibit intelligent behavior
+      \item Player C, the interrogator, is given the task of trying to determine which player, A or B, is a computer and which is a human
+    \end{itemize}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{images/turing_test.png}
+    \end{minipage}
+  \end{minipage}
+\end{itemize}
+
+## Imitating Humans - 2
+
+-   Image Recognition (Seeing):
+\begin{center}
+\includegraphics[width=5cm,trim={1cm 0cm 1cm 0cm}]{images/image_recognition.pdf}
+\end{center}
+
+-   Speech Recognition and Text Mining (Hearing and understanding text):
+\begin{center}
+\includegraphics[width=7cm,trim={0cm 4cm 0cm 4cm}]{images/speech_recognition.pdf}
+\end{center}
+
+## Imitating Humans - 3
+
+-   And know we try to learn them being creative:
+    -   Music and Text Generation
+    -   Neural Style Transfer:
+\begin{center}
+\includegraphics[width=0.7\textwidth,trim={1cm 4cm 1cm 4cm}]{images/neural_style_transfer.pdf}
+\end{center}
+    -   ...
+
 
 # Why Deep Learning is so Powerful?
 
 ## Singlelayer Perceptron
 
+- Weighted sum of input values transformed by an activation function $s$
+- If $s$ is the sigmoid function $(1 + \exp{\sum})^{-1}$, then the perceptron does exactly the same as the logistic regression
+
+\begin{center}
+\includegraphics[width=\textwidth,trim={2cm 3cm 1cm 2cm}]{images/perceptron.pdf}
+\end{center}
+
 ## Multilayer Perceptron
+
+-   Stacking of multiple perceptrons
+-   Corresponds to stacking GLM models
+-   Number of parameter grows exponentially \
+    $\rightarrow$ Optimizing becomes more difficult
+
+\begin{center}
+\includegraphics[width=\textwidth,trim={2cm 3cm 1cm 1cm}]{images/fully_connected.pdf}
+\end{center}
+
 
 ## Optimizer
 
+-   Having that much parameter/weights to find, standard optimizer like Gradient Descent may fail \
+    $\rightarrow$ Vanishing gradients problem  
+
+-   Therefore, much effort was spend to get more stable optimizer like momentum, adagrad, etc.:
+\begin{figure}
+\includegraphics[width=0.4\textwidth]{images/optimizer.jpg}
+\caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
+\end{figure}
+
 ## Convolution
+
+-   Generating of new, hopefully meaningful, features of the input (commonly images)
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{images/conv_sobel.png}
+\end{center}
+
+## Convolution
+
+\includegraphics[width=\textwidth]{images/sobel.pdf}
 
 ## Pooling
 
+- Down-sampling of images
+- Exact location is not as important as the relative location to other features
+
+\includegraphics[width=\textwidth,trim={2cm 2cm 3cm 3cm}]{images/max_pooling.pdf}
+
 ## Lets Get Deep
 
-## Automated Feature Generation
+-   The secret of Deep Learning is the chaining of hidden layer, convolution layers, and so on
+-   This deep structure allows the network to create powerful features and explore complex structures within the data
+-   VGG16 architecture:
 
-## Getting More Complex
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{images/vgg_net.png}
+\caption{\scriptsize \textbf{Source:} \url{https://www.cs.toronto.edu/~frossard/post/vgg16/}}
+\end{figure}
 
-RNN, LSTM, GAN
+
+
+<!-- 
+| Model             | Size   | Top-1 Accuracy | Top-5 Accuracy | Parameters   | Depth |
+| ----------------- | ------ | -------------- | -------------- | ------------ | ----- |
+| Xception          |  88 MB |          0.790 |          0.945 |  22,910,480  |  126  |
+| VGG16             | 528 MB |          0.713 |          0.901 |  138,357,544 |   23  |
+| VGG19             | 549 MB |          0.713 |          0.900 |  143,667,240 |   26  |
+| ResNet50          |  99 MB |          0.749 |          0.921 |  25,636,712  |  168  |
+| InceptionV3       |  92 MB |          0.779 |          0.937 |  23,851,784  |  159  |
+| InceptionResNetV2 | 215 MB |          0.803 |          0.953 |  55,873,736  |  572  |
+| MobileNet         |  16 MB |          0.704 |          0.895 |  4,253,864   |   88  |
+| MobileNetV2       |  14 MB |          0.713 |          0.901 |  3,538,984   |   88  |
+| DenseNet121       |  33 MB |          0.750 |          0.923 |  8,062,504   |  121  |
+| DenseNet169       |  57 MB |          0.762 |          0.932 |  14,307,880  |  169  |
+| DenseNet201       |  80 MB |          0.773 |          0.936 |  20,242,984  |  201  |
+| NASNetMobile      |  23 MB |          0.744 |          0.919 |  5,326,716   |    -  |
+| NASNetLarge       | 343 MB |          0.825 |          0.960 |  88,949,818  |    -  | 
+-->
+
+## Pre Trained Models
+
+\scriptsize
+
+| **Model**         | **Size** | **Parameters** | **Depth** |
+| ----------------- | --------:| --------------:|:---------:|
+| Xception          |  88 MB   |  22,910,480    |       126 |
+| VGG16             | 528 MB   |  138,357,544   |        23 |
+| VGG19             | 549 MB   |  143,667,240   |        26 |
+| ResNet50          |  99 MB   |  25,636,712    |       168 |
+| InceptionV3       |  92 MB   |  23,851,784    |       159 |
+| InceptionResNetV2 | 215 MB   |  55,873,736    |       572 |
+| MobileNet         |  16 MB   |  4,253,864     |        88 |
+| MobileNetV2       |  14 MB   |  3,538,984     |        88 |
+| DenseNet121       |  33 MB   |  8,062,504     |       121 |
+| DenseNet169       |  57 MB   |  14,307,880    |       169 |
+| DenseNet201       |  80 MB   |  20,242,984    |       201 |
+| NASNetMobile      |  23 MB   |  5,326,716     |         - |
+| NASNetLarge       | 343 MB   |  88,949,818    |         - |
+
+\normalsize
 
 # Challenges in Deep Learning
 
@@ -74,6 +199,8 @@ RNN, LSTM, GAN
 $\rightarrow$ Transfer learning.
 
 ## Expensive Training
+
+- Very very much parameter
 
 $\rightarrow$ Use server or GPUs.
 
@@ -130,6 +257,11 @@ Explain API
 Some Code
 
 # Outlook
+
+
+## Getting More Complex
+
+RNN, LSTM, GAN
 
 ## NLP
 
