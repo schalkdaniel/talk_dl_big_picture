@@ -190,6 +190,10 @@ output:
 | NASNetMobile      |  23 MB   |  5,326,716     |         - |
 | NASNetLarge       | 343 MB   |  88,949,818    |         - |
 
+\begin{center}
+\textbf{Source:} \href{https://keras.io/applications/}{\alert{Keras Documentation}}
+\end{center}
+
 \normalsize
 
 # Challenges in Deep Learning
