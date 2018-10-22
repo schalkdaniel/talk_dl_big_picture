@@ -88,6 +88,16 @@ output:
 
 # Why Deep Learning is so Powerful?
 
+## The Perceptron
+
+- The perceptron was invented by Frank Rosenblatt 1957.
+  \begin{figure}
+  \includegraphics[width=4cm]{images/mark_i_perceptron.png}
+  \caption{\footnotesize The Mark I Perceptron}
+  \end{figure}
+
+- It is the basic computational unit for neural networks.
+
 ## Singlelayer Perceptron
 
 - Weighted sum of input values transformed by an activation function $s$
@@ -101,7 +111,7 @@ output:
 
 -   Stacking of multiple perceptrons
 -   Corresponds to stacking GLM models
--   Number of parameter grows exponentially \
+-   Number of parameter grows very fast \
     $\rightarrow$ Optimizing becomes more difficult
 
 \begin{center}
@@ -111,10 +121,8 @@ output:
 
 ## Optimizer
 
--   Having that much parameter/weights to find, standard optimizer like Gradient Descent may fail \
-    $\rightarrow$ Vanishing gradients problem  
-
--   Therefore, much effort was spend to get more stable optimizer like momentum, adagrad, etc.:
+-   Having that much parameter/weights to find, standard optimizer like Gradient Descent may fail
+-   Therefore, much effort was spend to get faster optimizer like momentum, adagrad, etc.:
 \begin{figure}
 \includegraphics[width=0.4\textwidth]{images/optimizer.jpg}
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
@@ -134,14 +142,14 @@ output:
 
 ## Pooling
 
-- Down-sampling of images
-- Exact location is not as important as the relative location to other features
+-   Down-sampling of images
+-   Reduces overfitting, memory, and therefore speeds up the fitting process
 
 \includegraphics[width=\textwidth,trim={2cm 2cm 3cm 3cm}]{images/max_pooling.pdf}
 
 ## Lets Get Deep
 
--   The secret of Deep Learning is the chaining of hidden layer, convolution layers, and so on
+-   The secret of Deep Learning is the chaining of hidden layer such as convolution layers, pooling layers, and so on
 -   This deep structure allows the network to create powerful features and explore complex structures within the data
 -   VGG16 architecture:
 
@@ -212,17 +220,122 @@ $\rightarrow$ Use server or GPUs.
 
 # About Implementations
 
-## Frameworks
+## Hardware
 
-Keras, PyTorch, mxnet, ...
+- Deep Neural Networks require special hardware to be trained efficiently.
+- The training is done using \textbf{G}raphics \textbf{P}rocessing \textbf{U}nits and a special programming language called __CUDA__.
+- Training on standard CPUs takes a very long long time and gets infeasible for anything but toy examples.
 
-## Backends
+\begin{minipage}{0.49\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{images/cpu_training.pdf}
+\caption{Each CPU can do $2-8$ parallel computations.}
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{images/gpu_training.pdf}
+\caption{A single GPU can do thousands of simple parallel computations.}
+\end{figure}
+\end{minipage}
 
-Tensorflow, Theano, CNTK, ...
 
-## Low-Level Implementations
+## Software
 
-cudnn, CUDA, ...
+CUDA is a very _low level_ programming language and thus writing code for deeplearning requires a lot of work.
+Software projects, like TensorFlow and abstract CUDA provide additional functionality.
+
+
+\begin{minipage}{0.4\textwidth}
+The basic concept of calculations in deep neural networks is a \textit{computational graph},
+which describes the dependency structure of the network.
+\end{minipage}
+\begin{minipage}{0.58\textwidth}
+\begin{figure}
+\includegraphics[width=5cm]{images/compgraph1.png}
+\caption{Computational graph for $f(XW + b)$.}
+\end{figure}
+\end{minipage}
+
+
+## TensorFlow
+
+\begin{figure}
+  \centering
+    \includegraphics[width=5cm]{images/tensorflow.jpeg}
+\end{figure}
+
+
+- Open-source framework developed by google.
+
+- Rather low-level and aimed to directly work with computational graphs.
+
+- Mainly support for Python (R support only via _reticulate_).
+
+- Widely used and well documented.
+
+
+## Keras
+
+\begin{figure}
+  \centering
+    \includegraphics[width=5cm]{images/keras.png}
+\end{figure}
+
+- Open-source high-level API for deeplearning.
+
+- Can run on top of __TensorFlow__, CNTK or Theano.
+
+- Mainly support for Python (R support only via _reticulate_).
+
+- Widely used and well documented.
+
+## PyTorch
+
+\begin{figure}
+  \centering
+    \includegraphics[width=5cm]{images/pytorch.png}
+\end{figure}
+
+
+- Open-source framework developed by facebook.
+
+- Reimplementation of Torch.
+
+- Only support for Python.
+
+- Widely used and well documented.
+
+## Fast.ai
+
+\begin{figure}
+  \centering
+    \includegraphics[width=4cm]{images/fastai.png}
+\end{figure}
+
+
+- Open-source high-level API build on top of PyTorch.
+
+- Still in alpha version.
+
+- Only support for Python.
+
+- Initially developed for the _Practical Deep Learning for Coders_ online course.
+
+## mxnet
+
+\begin{figure}
+  \centering
+    \includegraphics[width=5cm]{images/mxnet.png}
+\end{figure}
+
+- Open-source framework in the Apache foundation.
+
+- Scalable, allow easy training on multiple GPUs in parallel.
+
+- Supports multiple languages (C++, Python, R, Julia, Matlab, JavaScript, Go, Scala, Pearl).
+
+- Not as widely used as other frameworks.
 
 # Where to Start in the DL Jungle
 
