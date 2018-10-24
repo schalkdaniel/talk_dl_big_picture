@@ -1,7 +1,6 @@
 ---
-title: What is Deep Learning
-subtitle: The Big Picture -- From History to Application using Keras
-author: Christian Heumann, Matthias Aßenmacher, Daniel Schalk
+title: Deep Learning -- The Big Picture
+author: C. Heumann, M. Aßenmacher, D. Schalk
 date: \today
 output:
   beamer_presentation:
@@ -12,7 +11,7 @@ output:
 
 
 
-# History of Deep Learning
+# Brief History of Deep Learning
 
 ## Deep Learning Timeline - 1
 
@@ -66,9 +65,10 @@ output:
 
 
 
-# Fascination Deep Learning
+# What is Possible With Deep Learning?
 
-## Imitating Humans - 1
+## Deep Learning Applications
+<!-- ## Imitating Humans - 1
 
 \begin{itemize}
   \item Turing test:
@@ -87,22 +87,22 @@ output:
     \end{minipage}
   \end{minipage}
 \end{itemize}
+ -->
+-   Supervised learning tasks
 
-## Imitating Humans - 2
-
--   Image Recognition (Seeing):
+-   Object Recognition -- Seeing:
 \begin{center}
 \includegraphics[width=5cm,trim={1cm 0cm 1cm 0cm}]{images/image_recognition.pdf}
 \end{center}
 
--   Speech Recognition and Text Mining (Hearing and understanding text):
+-   Speech Recognition and NLP -- Hearing and understanding text:
 \begin{center}
 \includegraphics[width=7cm,trim={0cm 4cm 0cm 4cm}]{images/speech_recognition.pdf}
 \end{center}
 
-## Imitating Humans - 3
+## Deep Learning Applications
 
--   And know we try to learn them being creative:
+-   And know we try to teach them creativity:
     -   Music and Text Generation
     -   Neural Style Transfer:
 \begin{center}
@@ -112,7 +112,7 @@ output:
 
 
 
-# Why Deep Learning is so Powerful?
+# How Deep Learning Works
 
 ## The Perceptron
 
@@ -138,7 +138,7 @@ output:
 -   Stacking of multiple perceptrons
 -   Corresponds to stacking GLM models
 -   Number of parameter grows very fast \
-    $\rightarrow$ Optimizing becomes more difficult
+    $\rightarrow$ Optimization becomes more difficult
 
 \begin{center}
 \includegraphics[width=\textwidth,trim={2cm 3cm 1cm 1cm}]{images/fully_connected.pdf}
@@ -148,7 +148,7 @@ output:
 ## Optimizer
 
 -   Having that much parameter/weights to find, standard optimizer like Gradient Descent may fail
--   Therefore, much effort was spend to get faster optimizer like momentum, adagrad, etc.:
+-   Therefore, much effort was spend to get faster optimizer like adam, rmsprop, etc.:
 \begin{figure}
 \includegraphics[width=0.4\textwidth]{images/optimizer.jpg}
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
@@ -171,14 +171,19 @@ output:
 
 ## Pooling
 
--   Down-sampling of images
--   Reduces overfitting, memory usage, and therefore speeds up the fitting process
+Down-sampling of images:
+
+\begin{itemize}\item[$\rightarrow$] Less weights to fit
+  \begin{itemize}\item[$\rightarrow$] Smaller net size (less memory usage, faster fitting process)
+    \begin{itemize}\item[$\rightarrow$] Reduces overfitting \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 \includegraphics[width=\textwidth,trim={2cm 2cm 3cm 3cm}]{images/max_pooling.pdf}
 
 ## Lets Get Deep
 
--   The secret of Deep Learning is the chaining of hidden layer such as convolution layers, pooling layers, and so on
+-   The power of Deep Neural Nets comes from chaining hidden layer such as convolution layers, pooling layers, and so on
 -   This deep structure allows the network to create powerful features and explore complex structures within the data
 -   VGG16 architecture:
 
@@ -239,17 +244,20 @@ output:
 
 ## Challenges in Deep Learning
 
--   **Architecture Search** \
-    Having that much possibilities of combining hidden layer, optimizer, and activation functions we run into the problem of finding a good architecture. \
-    \begin{itemize}\item[$\rightarrow$] Transfer learning, use already trained models, adjust them to your data situation, and train (a subset of) the weights.\end{itemize}
+-   **Finding a Good Architecture** \
+    Having that many possibilities of combining hidden layer, optimizer, and activation functions we run into the problem of finding a good architecture. \
+    \begin{itemize}
+      \item[$\rightarrow$] Transfer learning, use already trained models, adjust them to your data situation, and train (a subset of) the weights.
+      \item[$\rightarrow$] Architecture search
+    \end{itemize}
 
 -   **Expensive Training** \
-    Training of DNNs require billions of matrix multiplications, hence training \alert{one} DNN might take weeks. \
+    Training of DNNs require billions of simple operations, hence training \alert{one} DNN might take weeks. \
     \begin{itemize}\item[$\rightarrow$] Use GPU server for serious applications. Why? See next slides.\end{itemize}
 
 
 
-# About Implementations
+# Tech Stack 
 
 ## Hardware
 
@@ -675,6 +683,17 @@ categories[wuschel_pred.argmax()]
 ## 'cat'
 ```
 
+## What Next?
+
+**Improving Performance:**
+
+-   Choosing the number of epochs using early stopping
+-   Data augmentation (increasing size of training data by rotating, scaling, flipping, ...)
+
+**More Difficult Tasks:**
+
+-   RNN, LSTM, GAN, Reinforcement Learning
+-   Natural Language Processing
 
 <!-- # Outlook
 
