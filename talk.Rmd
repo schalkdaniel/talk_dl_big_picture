@@ -1,7 +1,7 @@
 ---
 title: What is Deep Learning
-subtitle: The Big Picture -- From History to Todays Implementations
-author: Daniel Schalk
+subtitle: The Big Picture -- From History to Application using Keras
+author: Christian Heumann, Matthias Aßenmacher, Daniel Schalk
 date: \today
 output:
   beamer_presentation:
@@ -244,7 +244,7 @@ output:
     \begin{itemize}\item[$\rightarrow$] Transfer learning, use already trained models, adjust them to your data situation, and train (a subset of) the weights.\end{itemize}
 
 -   **Expensive Training** \
-    During the tuning of Deep Neural Networks requires billions of matrix multiplications, hence training \alert{one} DNN might take weeks. \
+    Training of DNNs require billions of matrix multiplications, hence training \alert{one} DNN might take weeks. \
     \begin{itemize}\item[$\rightarrow$] Use GPU server for serious applications. Why? See next slides.\end{itemize}
 
 
@@ -421,91 +421,92 @@ On linux you may need to run the commands as `sudo`.
 
 ## Getting Started with Keras - Overview
 
--   Instead of introducing theory fist, we want to get into the topic by applying it.
+-   Instead of introducing theory, we want to get into the topic by applying it.
 
--   We use examples from the book \href{https://www.manning.com/books/deep-learning-with-python}{\alert{Deep Learning with Python}} which are prepared as \href{https://github.com/fchollet/deep-learning-with-python-notebooks}{\alert{notebooks}}.
+-   We using examples similar to the book \href{https://www.manning.com/books/deep-learning-with-python}{\alert{Deep Learning with Python}} that are prepared as \href{https://github.com/fchollet/deep-learning-with-python-notebooks}{\alert{notebooks}}.
 
 -   **But**: When using something new, e.g. a convolution layer or optimizer, try to understand what it does and why it might be beneficial!
 
-## Getting Started with Keras - Example Data
+-   First of all, we have to load keras and import models and layers:
+    ```python
+    import keras # equal to Rs library command
+    from keras import models
+    from keras import layers 
+    ```
+
+## Gettins Started with Keras - Example Data 1
 
 \scriptsize
 
 ```python
-import keras # equal to Rs library command
-from keras.datasets import cifar10
+import numpy as np
+from keras.datasets import cifar10 # Our dataset
+# See https://www.cs.toronto.edu/~kriz/cifar.html
 
 (X_train, Y_train), (X_test, Y_test) = cifar10.load_data()
+X_train.shape
+## (50000, 32, 32, 3)
+
+categories = ["airplane", "automobile", "bird", "cat", 
+              "deer", "dog", "frog", "horse", "ship", 
+              "truck"]
 
 import matplotlib.pyplot as plt
 
-plt.title('Label is {label}'.format(label=Y_train[2305]))
+category = categories[np.asscalar(Y_train[2305])]
+plt.title('Label is \"{label}\"'.format(label=category))
 plt.imshow(X_train[2305], cmap='gray')
 plt.show()
-
-(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
-
-plt.title('Label is {label}'.format(label=train_labels[3141]))
-plt.imshow(train_images[3141], cmap='gray')
-plt.show()
 ```
-\begin{center}
-  \includegraphics[width=4cm]{images/mnist_3141.png}
-\end{center}
-
 \normalsize
 
-## Getting Started with Keras - Example Data
+## Getting Started with Keras - Example Data 2
 
-We need to define in keras the shape of the images. Therefore, reshaping the images to $28 \times 28$ pixels.
+\begin{center}
+  \includegraphics[width=7cm]{images/cifar10_dog.png}
+\end{center}
+
+## Getting Started with Keras - Example Data 3
+
+The images are represented as rgb colors, each of the $32 \times 32$ pixels is represented as three numbers between 0 and 255. For the training we want to use values between 0 and 1:
 
 \scriptsize
 
 ```python
-train_images = X_train.reshape((60000, 32 * 32, 3))
 train_images = X_train.astype('float32') / 255
-train_images = train_images.astype('float32') / 255
-
-test_images = test_images.reshape((10000, 28 * 28))
-test_images = test_images.astype('float32') / 255
+test_images = X_test.astype('float32') / 255
 ```
+\normalsize
 
 Additionally, we have to convert the labels to a categorical data type:
+
+\scriptsize
 
 ```python
 from keras.utils import to_categorical
 
 train_labels = to_categorical(Y_train)
-test_labels = to_categorical(test_labels)
+test_labels = to_categorical(Y_test)
 ```
 
 \normalsize
 
-## Getting Started with Keras - First Neural Net 1
-
-Imports the `Sequential` model which is a linear stack of layers: 
-
-```python
-from keras import models
-```
-
-Imports the layers that can be used within the `Sequential` model:
-
-```python
-from keras import layers 
-```
-
-## Getting Started with Keras - First Neural Net 2
+## Getting Started with Keras - DNN 1
 
 \scriptsize
 
 ```python
 network = models.Sequential()
 
+network.add(layers.Conv2D(64, (3, 3),
+            input_shape=(32, 32, 3), padding='same',))
+# now: model.output_shape == (None, 64, 32, 32)
+
+network.add(layers.Flatten())
+
 # Add fully connected hidden layer:
-network.add(layers.Dense(units=512, 
-                         activation='relu', 
-                         input_shape=(32 * 32, 3)))
+network.add(layers.Dense(units=128, 
+                         activation='relu'))
 
 # Add output layer which maps each category to a neuron:
 network.add(layers.Dense(10, activation='softmax'))
@@ -514,55 +515,97 @@ network.add(layers.Dense(10, activation='softmax'))
 network.compile(optimizer='rmsprop',
                 loss='categorical_crossentropy',
                 metrics=['accuracy'])
+```
+\normalsize
 
-# Train network:
-network.fit(train_images, train_labels, epochs=5, batch_size=128)
+## Getting Started with Keras - DNN 2
+
+\scriptsize
+
+```python
+network.summary()
+## _________________________________________________________________
+## Layer (type)                 Output Shape              Param #
+## =================================================================
+## conv2d_2 (Conv2D)            (None, 32, 32, 64)        1792
+## _________________________________________________________________
+## flatten_2 (Flatten)          (None, 65536)             0
+## _________________________________________________________________
+## dense_3 (Dense)              (None, 128)               8388736
+## _________________________________________________________________
+## dense_4 (Dense)              (None, 10)                1290
+## =================================================================
+## Total params: 8,391,818
+## Trainable params: 8,391,818
+## Non-trainable params: 0
+## _________________________________________________________________
+## 
 ```
 
 \normalsize
 
-## Getting Started with Keras - First Neural Net 3
+## Getting Started with Keras - DNN 3
 
--   Predict a new image:
 \scriptsize
-    ```python
-    p = network.predict(test_images[:1])
-    p
-    # array([[5.9763487e-09, 3.7401582e-10, 6.6781431e-06, 
-    #         3.1601216e-05, 1.4678986e-12, 6.0180113e-08, 
-    #         9.2732910e-14, 9.9996114e-01, 5.4880491e-08, 
-    #         4.6900539e-07]], dtype=float32)
-    p.argmax()
-    7
-    ```
-\normalsize
 
--   Evaluate trained network:
+```python
+# Train network:
+network.fit(train_images, train_labels, epochs=5, batch_size=128)
+
+network.evaluate(test_images, test_labels)
+## [1.5289124059677124, 0.4727]
+```
+
+## Getting Started with Keras - DNN 4
+
+Now we try to predict the class of a new image. Therefore, we have to rescale the original image to the same input shape of the training images:
+\begin{center}
+  \includegraphics[width=\textwidth,trim={1cm 3cm 1cm 3cm}]{images/rescale_wuschel.pdf}
+\end{center}
+
+## Getting Started with Keras - DNN 5
+
 \scriptsize
-    ```python
-    network.evaluate(test_images, test_labels)
-    # [0.06617570319068618, 0.9798]
-    ```
-\normalsize
 
-## Getting Started with Keras - Getting Deep
+```python
+from keras.preprocessing.image import load_img, img_to_array
+img = load_img('wuschel.jpg', target_size=(32, 32))
+img = img_to_array(img).astype('float32') / 255
 
-Explain API
+plt.title('This is Wuschel')
+plt.imshow(img, cmap='gray')
+plt.show()
+```
+\begin{center}
+  \includegraphics[width=5cm]{images/wuschel32x32.png}
+\end{center}
 
-## Getting Started with Keras - Getting Deep
 
-Some Code
+## Getting Started with Keras - DNN 6
 
+\scriptsize
 
+```python
+wuschel_pred = network.predict(np.array([img]))
+wuschel_pred
+## array([[0.01510279, 0.03711035, 0.04978644, 0.25755176, 
+##         0.03696484, 0.23572417, 0.00041433, 0.3290789 , 
+##         0.00335977, 0.03490658]], dtype=float32)
 
-## Getting Started with Keras - Transfer Learning
+categories[wuschel_pred.argmax()]
+## 'horse'
+```
+
+## Getting Started with Keras - Transfer Learning 1
+
+\scriptsize
 
 ```python
 from keras.applications import VGG16
 
 conv_base = VGG16(weights='imagenet',
                   include_top=False,
-                  input_shape=())
+                  input_shape=(32, 32, 3))
 
 from keras import optimizers
 
@@ -574,18 +617,63 @@ model.add(layers.Dense(10, activation='softmax'))
 
 conv_base.trainable = False
 
-network.compile(optimizer='rmsprop',
+model.compile(optimizer='rmsprop',
                 loss='categorical_crossentropy',
                 metrics=['accuracy'])
-
-# Train network:
-network.fit(train_images, train_labels, epochs=5, batch_size=128)
 ```
 
-## Getting Started with Keras - Transfer Learning
+## Getting Started with Keras - Transfer Learning 2
 
-Some Code
+\scriptsize
 
+```python
+model.summary()
+## _________________________________________________________________
+## Layer (type)                 Output Shape              Param #
+## =================================================================
+## vgg16 (Model)                (None, 1, 1, 512)         14714688
+## _________________________________________________________________
+## flatten_3 (Flatten)          (None, 512)               0
+## _________________________________________________________________
+## dense_5 (Dense)              (None, 256)               131328
+## _________________________________________________________________
+## dense_6 (Dense)              (None, 10)                2570
+## =================================================================
+## Total params: 14,848,586
+## Trainable params: 133,898
+## Non-trainable params: 14,714,688
+## _________________________________________________________________
+## 
+```
+
+## Getting Started with Keras - Transfer Learning 3
+
+\scriptsize
+
+```python
+# Train network:
+model.fit(train_images, train_labels, epochs=10, batch_size=512)
+
+model.evaluate(test_images, test_labels)
+## [1.0980556041717529, 0.615]
+```
+
+## Getting Started with Keras - Transfer Learning 5
+
+\scriptsize
+
+```python
+wuschel_pred = model.predict(np.array([img]))
+wuschel_pred
+## array([[9.74539085e-04, 5.73369092e-04, 1.16892666e-01, 
+##         4.91573721e-01, 1.43246204e-01, 5.08558452e-02, 
+##         1.90994486e-01, 3.90014239e-03, 1.58492418e-04, 
+##         8.30588979e-04]], dtype=float32)
+
+
+categories[wuschel_pred.argmax()]
+## 'cat'
+```
 
 
 <!-- # Outlook
