@@ -41,7 +41,6 @@ output:
 ## Deep Learning Timeline - 2
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history2.pdf}}
-\addtocounter{framenumber}{-1}
 
 ## Deep Learning Timeline - 2
 
@@ -154,20 +153,31 @@ output:
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
 \end{figure}
 
-## Convolution
+## Convolution - As Operation
 
--   Generating of new, hopefully meaningful, features of the input (commonly images)
+-   Extraction of features of the input data:
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{images/conv_sobel.png}
 \end{center}
 
-## Convolution
+## Convolution - As Operation
 
 \begin{figure}
 \includegraphics[width=\textwidth]{images/sobel.pdf}
 \caption{\scriptsize \textbf{Note:} The recognition of edges and corners requires a multiple application of the operator.}
 \end{figure}
+
+## Convolution - In Neural Networks
+
+-   Filters, like the Sobel filter, are obtained by thinking long and hard about what should be obtained from a filter (like edges).
+-   In Deep Learning these filters are learned during the training and automatically generate new features:
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{images/conv_feat.png}
+\caption{\scriptsize \textbf{Source:} Lee, H., Grosse, R., Ranganath, R., \& Ng, A. Y. (2011). Unsupervised learning of hierarchical representations with convolutional deep belief networks. Communications of the ACM, 54(10), 95-103. \textit{\enquote{Each feature can be thought of as a filter, which filters the input image for that feature (a nose). If the feature is found, the responsible unit or units generate large activations, which can be picked up by the later classifier stages as a good indicator that the class is present.}}}
+\end{figure}
+
+
 
 ## Pooling
 
@@ -410,7 +420,7 @@ Useful resources:
 
 
 
-# Where to Start in the DL Jungle
+# Where to Start in the DL Jungle?
 
 ## Getting Started with Keras - Installation
 
@@ -558,10 +568,10 @@ network.summary()
 
 ```python
 # Train network:
-network.fit(train_images, train_labels, epochs=5, batch_size=128)
+network.fit(train_images, train_labels, epochs=20, batch_size=128)
 
 network.evaluate(test_images, test_labels)
-## [1.5289124059677124, 0.4727]
+## [3.585078500747681, 0.4522]
 ```
 
 ## Getting Started with Keras - DNN 4
@@ -577,7 +587,7 @@ Now we try to predict the class of a new image. Therefore, we have to rescale th
 
 ```python
 from keras.preprocessing.image import load_img, img_to_array
-img = load_img('wuschel.jpg', target_size=(32, 32))
+img = load_img('/home/daniel/github_repos/talk_dl_big_picture/images/wuschel.jpg', target_size=(32, 32))
 img = img_to_array(img).astype('float32') / 255
 
 plt.title('This is Wuschel')
@@ -613,11 +623,12 @@ from keras.applications import VGG16
 
 conv_base = VGG16(weights='imagenet',
                   include_top=False,
-                  input_shape=(32, 32, 3))
+                  input_shape=(48, 48, 3))
 
 from keras import optimizers
 
 model = models.Sequential()
+model.add(layers.UpSampling2D(size=(48,48)))
 model.add(conv_base)
 model.add(layers.Flatten())
 model.add(layers.Dense(256, activation='relu'))
@@ -660,7 +671,7 @@ model.summary()
 
 ```python
 # Train network:
-model.fit(train_images, train_labels, epochs=10, batch_size=512)
+model.fit(train_images, train_labels, epochs=20, batch_size=128)
 
 model.evaluate(test_images, test_labels)
 ## [1.0980556041717529, 0.615]
