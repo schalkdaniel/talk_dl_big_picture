@@ -102,8 +102,11 @@ output:
 ## Deep Learning Applications
 
 -   And know we try to teach them creativity:
-    -   Music and Text Generation
-    -   Neural Style Transfer:
+    -   **Music and Text Generation** \
+        Example of generated text trained on Trump tweets: \
+        *"The Fake News Media is a great people of the president was a great people of the many people who would be a great people of the president was a big crowd of the statement of the media is a great people of the people of the statement of the people ..."* \
+        ... could be better.
+    -   **Neural Style Transfer**
 \begin{center}
 \includegraphics[width=0.7\textwidth,trim={1cm 4cm 1cm 4cm}]{images/neural_style_transfer.pdf}
 \end{center}
@@ -176,8 +179,6 @@ output:
 \includegraphics[width=0.7\textwidth]{images/conv_feat.png}
 \caption{\scriptsize \textbf{Source:} Lee, H., Grosse, R., Ranganath, R., \& Ng, A. Y. (2011). Unsupervised learning of hierarchical representations with convolutional deep belief networks. Communications of the ACM, 54(10), 95-103. \textit{\enquote{Each feature can be thought of as a filter, which filters the input image for that feature (a nose). If the feature is found, the responsible unit or units generate large activations, which can be picked up by the later classifier stages as a good indicator that the class is present.}}}
 \end{figure}
-
-
 
 ## Pooling
 
