@@ -425,8 +425,10 @@ Useful resources:
 
 ## Getting Started with Keras - Installation
 
-Install keras using `pip` (or pip3 for python3) from the command line:
-```{r, eval=FALSE}
+-   Install keras using `pip` (or pip3 for python3) from the command line:
+
+\scriptsize
+```python
 # python
 pip install --upgrade tensorflow
 pip install keras
@@ -435,8 +437,16 @@ pip install keras
 pip3 install --upgrade tensorflow
 pip3 install keras
 ```
+\normalsize
 
-On linux you may need to run the commands as `sudo`.
+-   On linux you may need to run the commands as `sudo`.
+-   The GPU version requires `CUDA` and `cuDNN`. Installation is then done by
+
+\scriptsize
+```python
+pip install --upgrade tensorflow-gpu
+```
+\normalsize
 
 ## Getting Started with Keras - Overview
 
@@ -624,12 +634,11 @@ from keras.applications import VGG16
 
 conv_base = VGG16(weights='imagenet',
                   include_top=False,
-                  input_shape=(48, 48, 3))
+                  input_shape=(32, 32, 3))
 
 from keras import optimizers
 
 model = models.Sequential()
-model.add(layers.UpSampling2D(size=(48,48)))
 model.add(conv_base)
 model.add(layers.Flatten())
 model.add(layers.Dense(256, activation='relu'))
@@ -638,8 +647,8 @@ model.add(layers.Dense(10, activation='softmax'))
 conv_base.trainable = False
 
 model.compile(optimizer='rmsprop',
-                loss='categorical_crossentropy',
-                metrics=['accuracy'])
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
 ```
 
 ## Getting Started with Keras - Transfer Learning 2
@@ -675,7 +684,7 @@ model.summary()
 model.fit(train_images, train_labels, epochs=20, batch_size=128)
 
 model.evaluate(test_images, test_labels)
-## [1.0980556041717529, 0.615]
+## [1.1461146575927734, 0.6175]
 ```
 
 ## Getting Started with Keras - Transfer Learning 5
@@ -685,11 +694,10 @@ model.evaluate(test_images, test_labels)
 ```python
 wuschel_pred = model.predict(np.array([img]))
 wuschel_pred
-## array([[9.74539085e-04, 5.73369092e-04, 1.16892666e-01, 
-##         4.91573721e-01, 1.43246204e-01, 5.08558452e-02, 
-##         1.90994486e-01, 3.90014239e-03, 1.58492418e-04, 
-##         8.30588979e-04]], dtype=float32)
-
+## array([[1.4046730e-03, 1.0323318e-03, 1.2766185e-01, 
+##         4.6453097e-01, 5.1652599e-02, 5.0368346e-02, 
+##         2.9299492e-01, 1.0088098e-02, 2.4648944e-05, 
+##         2.4157017e-04]], dtype=float32)
 
 categories[wuschel_pred.argmax()]
 ## 'cat'
