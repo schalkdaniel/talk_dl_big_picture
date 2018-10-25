@@ -528,7 +528,7 @@ test_labels = to_categorical(Y_test)
 network = models.Sequential()
 
 network.add(layers.Conv2D(64, (3, 3),
-            input_shape=(32, 32, 3), padding='same',))
+            input_shape=(32, 32, 3), padding='same'))
 # now: model.output_shape == (None, 64, 32, 32)
 
 network.add(layers.Flatten())
@@ -598,7 +598,7 @@ Now we try to predict the class of a new image. Therefore, we have to rescale th
 
 ```python
 from keras.preprocessing.image import load_img, img_to_array
-img = load_img('/home/daniel/github_repos/talk_dl_big_picture/images/wuschel.jpg', target_size=(32, 32))
+img = load_img('wuschel.jpg', target_size=(32, 32))
 img = img_to_array(img).astype('float32') / 255
 
 plt.title('This is Wuschel')
