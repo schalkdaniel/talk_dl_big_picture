@@ -21,9 +21,9 @@ output:
 ## Deep Learning Timeline - 1
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history1.pdf}}
-\addtocounter{framenumber}{-1}
+jaddtocounter{framenumber}{-1}
 
-## Deep Learning Timeline - 1
+\# Deep Learning Timeline - 1
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history1.pdf}}
 \addtocounter{framenumber}{-1}
@@ -205,7 +205,7 @@ Down-sampling of images:
 
 
 
-<!-- 
+<!--
 | Model             | Size   | Top-1 Accuracy | Top-5 Accuracy | Parameters   | Depth |
 | ----------------- | ------ | -------------- | -------------- | ------------ | ----- |
 | Xception          |  88 MB |          0.790 |          0.945 |  22,910,480  |  126  |
@@ -220,7 +220,7 @@ Down-sampling of images:
 | DenseNet169       |  57 MB |          0.762 |          0.932 |  14,307,880  |  169  |
 | DenseNet201       |  80 MB |          0.773 |          0.936 |  20,242,984  |  201  |
 | NASNetMobile      |  23 MB |          0.744 |          0.919 |  5,326,716   |    -  |
-| NASNetLarge       | 343 MB |          0.825 |          0.960 |  88,949,818  |    -  | 
+| NASNetLarge       | 343 MB |          0.825 |          0.960 |  88,949,818  |    -  |
 -->
 
 ## Pre Trained Models
@@ -268,7 +268,7 @@ Down-sampling of images:
 
 
 
-# Tech Stack 
+# Tech Stack
 
 ## Hardware
 
@@ -460,7 +460,7 @@ pip install --upgrade tensorflow-gpu
     ```python
     import keras # equal to Rs library command
     from keras import models
-    from keras import layers 
+    from keras import layers
     ```
 
 ## Gettins Started with Keras - Example Data 1
@@ -476,8 +476,8 @@ from keras.datasets import cifar10 # Our dataset
 X_train.shape
 ## (50000, 32, 32, 3)
 
-categories = ["airplane", "automobile", "bird", "cat", 
-              "deer", "dog", "frog", "horse", "ship", 
+categories = ["airplane", "automobile", "bird", "cat",
+              "deer", "dog", "frog", "horse", "ship",
               "truck"]
 
 import matplotlib.pyplot as plt
@@ -534,7 +534,7 @@ network.add(layers.Conv2D(64, (3, 3),
 network.add(layers.Flatten())
 
 # Add fully connected hidden layer:
-network.add(layers.Dense(units=128, 
+network.add(layers.Dense(units=128,
                          activation='relu'))
 
 # Add output layer which maps each category to a neuron:
@@ -568,7 +568,7 @@ network.summary()
 ## Trainable params: 8,391,818
 ## Non-trainable params: 0
 ## _________________________________________________________________
-## 
+##
 ```
 
 \normalsize
@@ -617,8 +617,8 @@ plt.show()
 ```python
 wuschel_pred = network.predict(np.array([img]))
 wuschel_pred
-## array([[0.01510279, 0.03711035, 0.04978644, 0.25755176, 
-##         0.03696484, 0.23572417, 0.00041433, 0.3290789 , 
+## array([[0.01510279, 0.03711035, 0.04978644, 0.25755176,
+##         0.03696484, 0.23572417, 0.00041433, 0.3290789 ,
 ##         0.00335977, 0.03490658]], dtype=float32)
 
 categories[wuschel_pred.argmax()]
@@ -672,7 +672,7 @@ model.summary()
 ## Trainable params: 133,898
 ## Non-trainable params: 14,714,688
 ## _________________________________________________________________
-## 
+##
 ```
 
 ## Getting Started with Keras - Transfer Learning 3
@@ -694,9 +694,9 @@ model.evaluate(test_images, test_labels)
 ```python
 wuschel_pred = model.predict(np.array([img]))
 wuschel_pred
-## array([[1.4046730e-03, 1.0323318e-03, 1.2766185e-01, 
-##         4.6453097e-01, 5.1652599e-02, 5.0368346e-02, 
-##         2.9299492e-01, 1.0088098e-02, 2.4648944e-05, 
+## array([[1.4046730e-03, 1.0323318e-03, 1.2766185e-01,
+##         4.6453097e-01, 5.1652599e-02, 5.0368346e-02,
+##         2.9299492e-01, 1.0088098e-02, 2.4648944e-05,
 ##         2.4157017e-04]], dtype=float32)
 
 categories[wuschel_pred.argmax()]
@@ -721,5 +721,5 @@ categories[wuschel_pred.argmax()]
 
 -   **Getting More Complex**: RNN, LSTM, GAN, Reinforcement Learning
 -   **NLP**: Gensim, pre-trained word embeddings, ...
--   
+-
  -->
