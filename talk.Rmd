@@ -62,7 +62,29 @@ jaddtocounter{framenumber}{-1}
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history2.pdf}}
 \addtocounter{framenumber}{-1}
 
+## Deep Learning Timeline - 3
 
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history3.pdf}}
+
+## Deep Learning Timeline - 3
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history3.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 3
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history3.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 3
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=4]{images/dl_history3.pdf}}
+\addtocounter{framenumber}{-1}
+
+## Deep Learning Timeline - 3
+
+\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history3.pdf}}
+\addtocounter{framenumber}{-1}
 
 # What is Possible With Deep Learning?
 
