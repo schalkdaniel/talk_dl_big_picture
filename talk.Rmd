@@ -62,29 +62,7 @@ jaddtocounter{framenumber}{-1}
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history2.pdf}}
 \addtocounter{framenumber}{-1}
 
-## Deep Learning Timeline - 3
 
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history3.pdf}}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=4]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
 
 # What is Possible With Deep Learning?
 
@@ -133,98 +111,6 @@ jaddtocounter{framenumber}{-1}
 \includegraphics[width=0.7\textwidth,trim={1cm 4cm 1cm 4cm}]{images/neural_style_transfer.pdf}
 \end{center}
     -   ...
-
-## Some remarks on NLP
-
-- The world's largest companies are investing heavily in NLP:  
-  Google, Facebook, Amazon, Apple, Microsoft, ...
-- But still: a lot of (yet) unsolved problems and challenges
-- Innovations are more and more open-sourced
-- There's a variety of different applications of NLP  
-  in everyday life you might not be aware of
-- Once you see them, it soon becomes obvious
-
-## Neural Machine Translation
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/machine-translation.png}
-\end{center}
-
-- Two different NLP tasks are hiding in this picture..
-- __Underlying task__: Text generation
-
-## A brief History of Machine Translation
-
-- __Rule-Based Machine Translation__ (50s -- 80s)
-    + Dictionaries + Grammatical Rules
-- __Example-Based Machine Translation__ (80s -- 90s)
-    + First suggested by Makoto Nagao (1984)
-    + Based on bilingual text corpora
-- __Statistical Machine Translation__ (90s -- 10s)
-    + Driven by IBM guys
-- __Neural Machine Translation__ (last few years)
-    + Based on neural networks (LSTMs, Transformers)
-
-## Auto Completion
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/auto-completion.png}
-\end{center}
-
-- You might also know this from your smartphone keyboard
-- __Underlying task__: Predict the next word given the previous words (+ individual browsing history)
-
-## Spam filters
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/spam-detection.png}
-\end{center}
-
-- Indeed, spam filters are often surprisingly simple systems
-- __Underlying task__: Document classification (Naive Bayes or Logistic Regression)
-
-## Argument Mining
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/argument-mining_small.png}
-\end{center}
- 
-- Detection and ranking of arguments pro/contra a certain topic
--  __Underlying task__: Document classification and/or Sequence tagging
-
-## Chatbots
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/chatbots_small.png}
-\end{center}
-
-- We experience chatbots on a growing number of websites
-- __Underlying task__: Natural language understanding / Text generation
- 
-## Information Retrieval
- 
- <center>
- 
- *Alexa, what is the capital of Australia?*  
- 
- </center>
- 
-- __Underlying task__: Question Answering / Information extraction
- 
-## (Some) Further examples
-
-- __Sentiment analysis__ / __Text classification__
-    + Determine, whether a document is positive/neutral/negative
-- __Text Generation__
-    + Example: [*OpenAI GPT2*](https://openai.com/blog/better-language-models/)
-- __Named Entity Recognition__
-    + Search for certain entities (e.g. person, location, etc.)
-- __Image Captioning__
-    + Hybrid task (Computer Vision + NLP)
-- __Dependency Parsing__
-    + Determine the grammatical structure of text
-- __Part-of-speech tagging__
-    + Tagging words according to their role in a text
 
 
 
@@ -341,7 +227,7 @@ Down-sampling of images:
 
 \scriptsize
 
-| **Model**         | **Size** | **Parameters** | **Depth** |
+| __Model__         | __Size__ | __Parameters__ | __Depth__ |
 | ----------------- | --------:| --------------:|:---------:|
 | Xception          |  88 MB   |  22,910,480    |       126 |
 | VGG16             | 528 MB   |  138,357,544   |        23 |
@@ -363,31 +249,7 @@ Down-sampling of images:
 
 \normalsize
 
-## A primer on Transfer Learning
 
-- What are "_Pre Trained models_"?
-    + Knowledge gained from solving one task can be potentially transfered to other tasks
-    + Pre Training on a relatively general data set (of images)
-    + Fine Tuning on a task specific data set at hand
-    + _For images:_
-        + Pre Trained model has already learned something about shapes and edges
-        + Potentially also already about more complex concepts
-    + _For text:_
-        + Pre Trained model has already some knowledge of syntax & semantic
-
-## A primer on Transfer Learning
-
-\begin{figure}
-\includegraphics[width=0.75\textwidth]{images/transfer_learning_taxonomy-1.png}
-\caption{\scriptsize \textbf{Source:} \url{https://ruder.io/thesis/index.html}}
-\end{figure}
-
-## A primer on Transfer Learning
-
-- Good points to start:
-    + \url{https://ruder.io/state-of-transfer-learning-in-nlp/}
-    + Many tutorials, etc. available online:
-      \url{https://lmgtfy.com/?q=transfer+learning+nlp}
 
 # Challenges in Deep Learning
 
@@ -525,6 +387,16 @@ Useful resources:
 - Only support for Python.
 
 - Widely used and well documented.
+
+## PyTorch
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth]{images/pytorch_graph.png}
+    \caption{Source: \url{https://github.com/pytorch/pytorch}}
+\end{figure}
+
+
 
 ## Fast.ai
 
