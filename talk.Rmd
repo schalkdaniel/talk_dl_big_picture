@@ -102,11 +102,11 @@ jaddtocounter{framenumber}{-1}
 ## Deep Learning Applications
 
 -   And know we try to teach them creativity:
-    -   **Music and Text Generation** \
+    -   __Music and Text Generation__ \
         Example of generated text trained on Trump tweets: \
         *"The Fake News Media is a great people of the president was a great people of the many people who would be a great people of the president was a big crowd of the statement of the media is a great people of the people of the statement of the people ..."* \
         ... could be better.
-    -   **Neural Style Transfer**
+    - __Neural Style Transfer__
 \begin{center}
 \includegraphics[width=0.7\textwidth,trim={1cm 4cm 1cm 4cm}]{images/neural_style_transfer.pdf}
 \end{center}
@@ -155,6 +155,28 @@ jaddtocounter{framenumber}{-1}
 \includegraphics[width=0.4\textwidth]{images/optimizer.jpg}
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
 \end{figure}
+
+## Input Source Images
+
+-   Deep Learnings are well known for handling more complex data structures like images, text, voice recordings etc.
+-   When using images as input, one image becomes one observation:
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{images/mnist8.png}
+\end{center}
+
+-   But, how to analyse images? We have to make use of the spatial structure, but how?
+
+
+## Input Source Text
+
+-   Another typical data format are texts:
+
+\begin{center}
+\includegraphics[width=0.8\textwidth, trim={0cm 3cm 0cm 3cm}]{images/rnn.pdf}
+\end{center}
+
+-   But, how to analyse text sources? We also have to consider the recurrent dependencies of text, but how?
 
 ## Convolution - As Operation
 
@@ -207,7 +229,7 @@ Down-sampling of images:
 
 <!--
 | Model             | Size   | Top-1 Accuracy | Top-5 Accuracy | Parameters   | Depth |
-| ----------------- | ------ | -------------- | -------------- | ------------ | ----- |
+| ------------------|--------|----------------|----------------|--------------| ----- |
 | Xception          |  88 MB |          0.790 |          0.945 |  22,910,480  |  126  |
 | VGG16             | 528 MB |          0.713 |          0.901 |  138,357,544 |   23  |
 | VGG19             | 549 MB |          0.713 |          0.900 |  143,667,240 |   26  |
@@ -255,14 +277,14 @@ Down-sampling of images:
 
 ## Challenges in Deep Learning
 
--   **Finding a Good Architecture** \
+-   __Finding a Good Architecture__ \
     Having that many possibilities of combining hidden layer, optimizer, and activation functions we run into the problem of finding a good architecture. \
     \begin{itemize}
       \item[$\rightarrow$] Transfer learning, use already trained models, adjust them to your data situation, and train (a subset of) the weights.
       \item[$\rightarrow$] Architecture search
     \end{itemize}
 
--   **Expensive Training** \
+-   __Expensive Training__ \
     Training of DNNs require billions of simple operations, hence training \alert{one} DNN might take weeks. \
     \begin{itemize}\item[$\rightarrow$] Use GPU server for serious applications. Why? See next slides.\end{itemize}
 
@@ -273,7 +295,7 @@ Down-sampling of images:
 ## Hardware
 
 - Deep Neural Networks require special hardware to be trained efficiently.
-- The training is done using **G**raphics **P**rocessing **U**nits and a special programming language called **CUDA**.
+- The training is done using __G__raphics __P__rocessing __U__nits and a special programming language called __CUDA__.
 - Training on standard CPUs takes a very long long time and gets infeasible for anything but toy examples.
 
 \begin{minipage}{0.49\textwidth}
@@ -292,7 +314,7 @@ Down-sampling of images:
 
 ## Software
 
-CUDA is a very **low level** programming language and thus writing code for Deep Learning requires a lot of work.
+CUDA is a very __low level__ programming language and thus writing code for Deep Learning requires a lot of work.
 Software projects, like TensorFlow and abstract CUDA provide additional functionality.
 
 
@@ -334,9 +356,9 @@ which describes the dependency structure of the network.
 
 - Open-source high-level API for Deep Learning.
 
-- Can run on top of **TensorFlow**, CNTK or Theano.
+- Can run on top of __TensorFlow__, CNTK or Theano.
 
-- Mainly support for Python (R support only via **reticulate**).
+- Mainly support for Python (R support only via __reticulate__).
 
 - Widely used and well documented.
 
@@ -353,7 +375,7 @@ which describes the dependency structure of the network.
 
 - Deep learning in R is the same as in Python.
 
-- Communication from R to Python via **reticulate**.
+- Communication from R to Python via __reticulate__.
 
 ## Keras in R
 
@@ -390,14 +412,16 @@ Useful resources:
 
 ## PyTorch
 
+- PyToch uses dynamic computational graphs. Instead of define and run the graph, the graph is defined by run:
+
 \begin{figure}
   \centering
-    \includegraphics[width=0.8\textwidth]{images/pytorch_graph.png}
+    \includegraphics[width=0.6\textwidth]{images/pytorch_graph.png}
     \caption{Source: \url{https://github.com/pytorch/pytorch}}
 \end{figure}
 
 
-
+<!---
 ## Fast.ai
 
 \begin{figure}
@@ -428,7 +452,7 @@ Useful resources:
 - Supports multiple languages (C++, Python, R, Julia, Matlab, JavaScript, Go, Scala, Pearl).
 
 - Not as widely used as other frameworks.
-
+-->
 
 
 # Where to Start in the DL Jungle?
