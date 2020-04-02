@@ -383,7 +383,31 @@ Down-sampling of images:
 
 \normalsize
 
+## A primer on Transfer Learning
 
+- What are "_Pre Trained models_"?
+    + Knowledge gained from solving one task can be potentially transfered to other tasks
+    + Pre Training on a relatively general data set (of images)
+    + Fine Tuning on a task specific data set at hand
+    + _For images:_
+        + Pre Trained model has already learned something about shapes and edges
+        + Potentially also already about more complex concepts
+    + _For text:_
+        + Pre Trained model has already some knowledge of syntax & semantic
+
+## A primer on Transfer Learning
+
+\begin{figure}
+\includegraphics[width=0.75\textwidth]{images/transfer_learning_taxonomy-1.png}
+\caption{\scriptsize \textbf{Source:} \url{https://ruder.io/thesis/index.html}}
+\end{figure}
+
+## A primer on Transfer Learning
+
+- Good points to start:
+    + \url{https://ruder.io/state-of-transfer-learning-in-nlp/}
+    + Many tutorials, etc. available online:
+      \url{https://lmgtfy.com/?q=transfer+learning+nlp}
 
 # Challenges in Deep Learning
 
