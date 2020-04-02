@@ -62,29 +62,7 @@ output:
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history2.pdf}}
 \addtocounter{framenumber}{-1}
 
-## Deep Learning Timeline - 3
 
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=1]{images/dl_history3.pdf}}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=4]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
-
-## Deep Learning Timeline - 3
-
-\hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=5]{images/dl_history3.pdf}}
-\addtocounter{framenumber}{-1}
 
 # What is Possible With Deep Learning?
 
@@ -124,107 +102,15 @@ output:
 ## Deep Learning Applications
 
 -   And know we try to teach them creativity:
-    -   **Music and Text Generation** \
+    -   __Music and Text Generation__ \
         Example of generated text trained on Trump tweets: \
         *"The Fake News Media is a great people of the president was a great people of the many people who would be a great people of the president was a big crowd of the statement of the media is a great people of the people of the statement of the people ..."* \
         ... could be better.
-    -   **Neural Style Transfer**
+    - __Neural Style Transfer__
 \begin{center}
 \includegraphics[width=0.7\textwidth,trim={1cm 4cm 1cm 4cm}]{images/neural_style_transfer.pdf}
 \end{center}
     -   ...
-
-## Some remarks on NLP
-
-- The world's largest companies are investing heavily in NLP:  
-  Google, Facebook, Amazon, Apple, Microsoft, ...
-- But still: a lot of (yet) unsolved problems and challenges
-- Innovations are more and more open-sourced
-- There's a variety of different applications of NLP  
-  in everyday life you might not be aware of
-- Once you see them, it soon becomes obvious
-
-## Neural Machine Translation
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/machine-translation.png}
-\end{center}
-
-- Two different NLP tasks are hiding in this picture..
-- __Underlying task__: Text generation
-
-## A brief History of Machine Translation
-
-- __Rule-Based Machine Translation__ (50s -- 80s)
-    + Dictionaries + Grammatical Rules
-- __Example-Based Machine Translation__ (80s -- 90s)
-    + First suggested by Makoto Nagao (1984)
-    + Based on bilingual text corpora
-- __Statistical Machine Translation__ (90s -- 10s)
-    + Driven by IBM guys
-- __Neural Machine Translation__ (last few years)
-    + Based on neural networks (LSTMs, Transformers)
-
-## Auto Completion
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/auto-completion.png}
-\end{center}
-
-- You might also know this from your smartphone keyboard
-- __Underlying task__: Predict the next word given the previous words (+ individual browsing history)
-
-## Spam filters
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/spam-detection.png}
-\end{center}
-
-- Indeed, spam filters are often surprisingly simple systems
-- __Underlying task__: Document classification (Naive Bayes or Logistic Regression)
-
-## Argument Mining
-
-\begin{center}
-\includegraphics[width=0.9\textwidth]{images/argument-mining_small.png}
-\end{center}
- 
-- Detection and ranking of arguments pro/contra a certain topic
--  __Underlying task__: Document classification and/or Sequence tagging
-
-## Chatbots
-
-\begin{center}
-\includegraphics[width=0.8\textwidth]{images/chatbots_small.png}
-\end{center}
-
-- We experience chatbots on a growing number of websites
-- __Underlying task__: Natural language understanding / Text generation
- 
-## Information Retrieval
- 
- <center>
- 
- *Alexa, what is the capital of Australia?*  
- 
- </center>
- 
-- __Underlying task__: Question Answering / Information extraction
- 
-## (Some) Further examples
-
-- __Sentiment analysis__ / __Text classification__
-    + Determine, whether a document is positive/neutral/negative
-- __Text Generation__
-    + Example: [*OpenAI GPT2*](https://openai.com/blog/better-language-models/)
-- __Named Entity Recognition__
-    + Search for certain entities (e.g. person, location, etc.)
-- __Image Captioning__
-    + Hybrid task (Computer Vision + NLP)
-- __Dependency Parsing__
-    + Determine the grammatical structure of text
-- __Part-of-speech tagging__
-    + Tagging words according to their role in a text
 
 
 
@@ -269,6 +155,28 @@ output:
 \includegraphics[width=0.4\textwidth]{images/optimizer.jpg}
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
 \end{figure}
+
+## Input Source Images
+
+-   Deep Learning is well known for handling more complex data structures like images, text, voice recordings etc.
+-   When using images as input, one image becomes one observation:
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{images/mnist8.png}
+\end{center}
+
+-   But, how to analyse images? We have to make use of the spatial structure, but how?
+
+
+## Input Source Text
+
+-   Another typical data format are texts:
+
+\begin{center}
+\includegraphics[width=0.8\textwidth, trim={0cm 3cm 0cm 3cm}]{images/rnn.pdf}
+\end{center}
+
+-   But, how to analyse text sources? We also have to consider the recurrent dependencies of text, but how?
 
 ## Convolution - As Operation
 
@@ -321,7 +229,7 @@ Down-sampling of images:
 
 <!--
 | Model             | Size   | Top-1 Accuracy | Top-5 Accuracy | Parameters   | Depth |
-| ----------------- | ------ | -------------- | -------------- | ------------ | ----- |
+| ------------------|--------|----------------|----------------|--------------| ----- |
 | Xception          |  88 MB |          0.790 |          0.945 |  22,910,480  |  126  |
 | VGG16             | 528 MB |          0.713 |          0.901 |  138,357,544 |   23  |
 | VGG19             | 549 MB |          0.713 |          0.900 |  143,667,240 |   26  |
@@ -341,7 +249,7 @@ Down-sampling of images:
 
 \scriptsize
 
-| **Model**         | **Size** | **Parameters** | **Depth** |
+| __Model__         | __Size__ | __Parameters__ | __Depth__ |
 | ----------------- | --------:| --------------:|:---------:|
 | Xception          |  88 MB   |  22,910,480    |       126 |
 | VGG16             | 528 MB   |  138,357,544   |        23 |
@@ -363,44 +271,20 @@ Down-sampling of images:
 
 \normalsize
 
-## A primer on Transfer Learning
 
-- What are "_Pre Trained models_"?
-    + Knowledge gained from solving one task can be potentially transfered to other tasks
-    + Pre Training on a relatively general data set (of images)
-    + Fine Tuning on a task specific data set at hand
-    + _For images:_
-        + Pre Trained model has already learned something about shapes and edges
-        + Potentially also already about more complex concepts
-    + _For text:_
-        + Pre Trained model has already some knowledge of syntax & semantic
-
-## A primer on Transfer Learning
-
-\begin{figure}
-\includegraphics[width=0.75\textwidth]{images/transfer_learning_taxonomy-1.png}
-\caption{\scriptsize \textbf{Source:} \url{https://ruder.io/thesis/index.html}}
-\end{figure}
-
-## A primer on Transfer Learning
-
-- Good points to start:
-    + \url{https://ruder.io/state-of-transfer-learning-in-nlp/}
-    + Many tutorials, etc. available online:
-      \url{https://lmgtfy.com/?q=transfer+learning+nlp}
 
 # Challenges in Deep Learning
 
 ## Challenges in Deep Learning
 
--   **Finding a Good Architecture** \
+-   __Finding a Good Architecture__ \
     Having that many possibilities of combining hidden layer, optimizer, and activation functions we run into the problem of finding a good architecture. \
     \begin{itemize}
       \item[$\rightarrow$] Transfer learning, use already trained models, adjust them to your data situation, and train (a subset of) the weights.
       \item[$\rightarrow$] Architecture search
     \end{itemize}
 
--   **Expensive Training** \
+-   __Expensive Training__ \
     Training of DNNs require billions of simple operations, hence training \alert{one} DNN might take weeks. \
     \begin{itemize}\item[$\rightarrow$] Use GPU server for serious applications. Why? See next slides.\end{itemize}
 
@@ -411,7 +295,7 @@ Down-sampling of images:
 ## Hardware
 
 - Deep Neural Networks require special hardware to be trained efficiently.
-- The training is done using **G**raphics **P**rocessing **U**nits and a special programming language called **CUDA**.
+- The training is done using __G__raphics __P__rocessing __U__nits and a special programming language called __CUDA__.
 - Training on standard CPUs takes a very long long time and gets infeasible for anything but toy examples.
 
 \begin{minipage}{0.49\textwidth}
@@ -430,7 +314,7 @@ Down-sampling of images:
 
 ## Software
 
-CUDA is a very **low level** programming language and thus writing code for Deep Learning requires a lot of work.
+CUDA is a very __low level__ programming language and thus writing code for Deep Learning requires a lot of work.
 Software projects, like TensorFlow and abstract CUDA provide additional functionality.
 
 
@@ -472,9 +356,9 @@ which describes the dependency structure of the network.
 
 - Open-source high-level API for Deep Learning.
 
-- Can run on top of **TensorFlow**, CNTK or Theano.
+- Can run on top of __TensorFlow__, CNTK or Theano.
 
-- Mainly support for Python (R support only via **reticulate**).
+- Mainly support for Python (R support only via __reticulate__).
 
 - Widely used and well documented.
 
@@ -491,7 +375,7 @@ which describes the dependency structure of the network.
 
 - Deep learning in R is the same as in Python.
 
-- Communication from R to Python via **reticulate**.
+- Communication from R to Python via __reticulate__.
 
 ## Keras in R
 
@@ -526,6 +410,18 @@ Useful resources:
 
 - Widely used and well documented.
 
+## PyTorch
+
+- PyToch uses dynamic computational graphs. Instead of define and run the graph, the graph is defined by run:
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.6\textwidth]{images/pytorch_graph.png}
+    \caption{Source: \url{https://github.com/pytorch/pytorch}}
+\end{figure}
+
+
+<!---
 ## Fast.ai
 
 \begin{figure}
@@ -556,7 +452,7 @@ Useful resources:
 - Supports multiple languages (C++, Python, R, Julia, Matlab, JavaScript, Go, Scala, Pearl).
 
 - Not as widely used as other frameworks.
-
+-->
 
 
 # Where to Start in the DL Jungle?
