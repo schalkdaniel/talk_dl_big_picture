@@ -21,9 +21,9 @@ output:
 ## Deep Learning Timeline - 1
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=2]{images/dl_history1.pdf}}
-jaddtocounter{framenumber}{-1}
+\addtocounter{framenumber}{-1}
 
-\# Deep Learning Timeline - 1
+## Deep Learning Timeline - 1
 
 \hbox{\hspace{-6.5em} \includegraphics[width=14cm,page=3]{images/dl_history1.pdf}}
 \addtocounter{framenumber}{-1}
