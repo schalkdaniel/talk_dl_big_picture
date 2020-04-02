@@ -158,7 +158,7 @@ jaddtocounter{framenumber}{-1}
 
 ## Input Source Images
 
--   Deep Learnings are well known for handling more complex data structures like images, text, voice recordings etc.
+-   Deep Learning is well known for handling more complex data structures like images, text, voice recordings etc.
 -   When using images as input, one image becomes one observation:
 
 \begin{center}
