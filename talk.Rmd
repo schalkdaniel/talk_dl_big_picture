@@ -300,18 +300,6 @@ jaddtocounter{framenumber}{-1}
 
 -   But, how to analyse text sources? We also have to consider the recurrent dependencies of text, but how?
 
-## Input Source: Text
-
-\addtocounter{framenumber}{-1}
-
--   Another typical data format are texts:
-
-\begin{center}
-\includegraphics[width=0.8\textwidth, page=3, trim={0cm 0cm 0cm 2cm}]{images/rnn.pdf}
-\end{center}
-
--   But, how to analyse text sources? We also have to consider the recurrent dependencies of text, but how?
-
 ## Convolution - As Operation
 
 -   Extraction of features of the input data:
