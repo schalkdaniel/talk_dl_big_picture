@@ -556,6 +556,8 @@ Useful resources:
 
 - Widely used and well documented.
 
+- PyTorch includes a standard transformer module based on the paper [\alert{Attention is All You Need}](https://arxiv.org/pdf/1706.03762.pdf).
+
 ## PyTorch
 
 - PyTorch uses dynamic computational graphs. Instead of define and run the graph, the graph is defined by run:
