@@ -268,7 +268,7 @@ output:
 \caption{\scriptsize \textbf{Source:} Ruder, S. (2016). An overview of gradient descent optimization algorithms. arXiv preprint arXiv:1609.04747.}
 \end{figure}
 
-## Input Source Images
+## Input Source: Images
 
 -   Deep Learning is well known for handling more complex data structures like images, text, voice recordings etc.
 -   When using images as input, one image becomes one observation:
@@ -280,12 +280,22 @@ output:
 -   But, how to analyse images? We have to make use of the spatial structure, but how?
 
 
-## Input Source Text
+## Input Source: Text
 
 -   Another typical data format are texts:
 
 \begin{center}
-\includegraphics[width=0.8\textwidth, trim={0cm 3cm 0cm 3cm}]{images/rnn.pdf}
+\includegraphics[width=0.8\textwidth, page=1, trim={0cm 3cm 0cm 3cm}]{images/rnn.pdf}
+\end{center}
+
+## Input Source: Text
+
+\addtocounter{framenumber}{-1}
+
+-   Another typical data format are texts:
+
+\begin{center}
+\includegraphics[width=0.8\textwidth, page=2, trim={0cm 3cm 0cm 3cm}]{images/rnn.pdf}
 \end{center}
 
 -   But, how to analyse text sources? We also have to consider the recurrent dependencies of text, but how?
@@ -546,9 +556,11 @@ Useful resources:
 
 - Widely used and well documented.
 
+- PyTorch includes a standard transformer module based on the paper [\alert{Attention is All You Need}](https://arxiv.org/pdf/1706.03762.pdf).
+
 ## PyTorch
 
-- PyToch uses dynamic computational graphs. Instead of define and run the graph, the graph is defined by run:
+- PyTorch uses dynamic computational graphs. Instead of define and run the graph, the graph is defined by run:
 
 \begin{figure}
   \centering
