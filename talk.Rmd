@@ -393,7 +393,7 @@ Down-sampling of images:
         + Pre Trained model has already learned something about shapes and edges
         + Potentially also already about more complex concepts
     + _For text:_
-        + Pre Trained model has already some knowledge of syntax & semantic
+        + Pre Trained model has already some knowledge of syntax & semantics
 
 ## A primer on Transfer Learning
 
